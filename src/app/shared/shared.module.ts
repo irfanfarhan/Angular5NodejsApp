@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { LoadingService } from './services/loading.service';
-import { LoginRedirectComponent } from './components/login-redirect/login-redirect.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { LibraryModule } from '../lib/lib.module';
 import { RestService } from './services/rest.service';
 import { ToastrModule } from 'ngx-toastr';
+import { AppConfiguration } from './services/app-config.service';
+import { LoginComponent } from './components/login/login.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
     LibraryModule,
     ToastrModule.forRoot(),
   ],
-  declarations: [LoginRedirectComponent, LoaderComponent],
+  declarations: [LoaderComponent,
+    LoginComponent],
   exports: [
     CommonModule,
     BrowserModule,
@@ -29,9 +32,9 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    LoginRedirectComponent,
-    LoaderComponent
+    LoaderComponent,
+    LoginComponent
   ],
-  providers: [LoadingService, RestService]
+  providers: [LoadingService, RestService, AppConfiguration]
 })
 export class SharedModule {}

@@ -24,7 +24,7 @@ import { XlsxToJsonService } from '../ngNodejsMongoApp/services/xlsx-to-json-ser
     DashboardComponent,
     CreateUserComponent,
     EditUserComponent,
-    AddMultipleUsersComponent,
+    AddMultipleUsersComponent
   ],
   entryComponents: [],
   providers: [LoadingService, UserService, XlsxToJsonService]

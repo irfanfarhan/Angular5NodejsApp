@@ -34,4 +34,9 @@ export class UserService {
 
     return this.restService.getByUrl(url);
   }
+  login(login: any) {
+    const url = 'http://localhost:4000/users/add';
+
+    return this.restService.postByUrl(url, login);
+  }
 }
