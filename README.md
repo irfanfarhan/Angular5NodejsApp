@@ -25,3 +25,36 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+public getByUrlWithoutParsingToJsonObserved(url: string) : any {
+        const getHeaders = new HttpHeaders({
+            'X-CSC-User-Id': localStorage.getItem('userId')
+        });
+
+        return this.http.get(url, { headers: getHeaders, responseType: 'blob', observe: 'response' }).pipe(catchError(this.handleError));
+    }
+    
+    (res) => {
+                this.loadingService.toggleLoadingIndicator(false);
+                let data = res.body;
+                const keys = res.headers.keys();
+                const contentDisposition = res.headers.get('content-disposition') || '';
+                const matches = /filename=([^;]+)/ig.exec(contentDisposition);
+                const fileName = (matches[1] || 'untitled').trim();
+                
+                let myBlob = new Blob([data], {
+                    type: 'application/octet-stream'
+                });
+                if (navigator.msSaveBlob) { // IE 10+
+                    navigator.msSaveBlob(myBlob, fileName);
+                } else {
+                    const url = window.URL.createObjectURL(data);
+                    const link = document.createElement('a');
+                    document.body.appendChild(link);
+                    data;
+                    link.download = fileName;
+                    link.href = url;
+                    link.click();
+                }
+            },
