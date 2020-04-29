@@ -28,7 +28,7 @@
         "cors": "^2.8.4",
         "express": "^4.16.2",
         "font-awesome": "^4.7.0",
-        "jquery": "^1.12.4",
+        "jquery": "^3.5.0",
         "lodash": "^4.17.5",
         "mongoose": "^5.7.5",
         "ngx-bootstrap": "^2.0.2",
