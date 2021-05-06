@@ -29,7 +29,7 @@
         "express": "^4.16.2",
         "font-awesome": "^4.7.0",
         "jquery": "^1.12.4",
-        "lodash": "^4.17.5",
+        "lodash": "^4.17.21",
         "mongoose": "^5.7.5",
         "ngx-bootstrap": "^2.0.2",
         "ngx-toastr": "^8.3.0",
